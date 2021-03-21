@@ -21,9 +21,13 @@ weights1 = [0.2, 0.8, -0.5, 1]
 weights2 = [0.5, -0.91, 0.26, -0.5]
 weights3 = [-0.26, -0.27, 0.17, 0.87]
 
+weights = [weights1, weights2, weights3]
+
 bias1 = 2
 bias2 = 3
 bias3 = 0.5
+
+biases = [bias1, bias2, bias3]
 
 # output = inputs.weights + bias
 #output = [0,0,0]
@@ -45,7 +49,6 @@ output[2] =    inputs[0]*weights2[0]+\
             inputs[3]*weights2[3]+\
             bias3
 
-
-
-
 print(output)
+
+
