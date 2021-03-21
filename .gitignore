@@ -1,3 +1,7 @@
+# Data downloaded, all gets downloaded on first run
+data/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
