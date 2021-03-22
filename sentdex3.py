@@ -26,6 +26,11 @@ def spiral_data(points, classes):
         y[ix] = class_number
     return X, y
 
+class Activation_Softmax:
+    def forward(self, inputs):
+        exp_values = np.exp(inputs - np.max(inputs, axis=1, keepdims=True))
+        probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)
+        self.output = probabilities
 
 class Activation_ReLU:
     def forward(self,inputs):
@@ -48,6 +53,7 @@ class Layer_Dense:
 ## Layers class
 
 
+'''
 # first size of layer1 is number of inputs from X
 layer1 = Layer_Dense(4,5)
 activation1 = Activation_ReLU()
@@ -58,3 +64,20 @@ layer1.forward(X)
 print(layer1.output)
 activation1.forward(layer1.output)
 print(activation1.output)
+'''
+
+X,y = spiral_data(100,3)
+
+dense1 = Layer_Dense(2,3)
+activation1 = Activation_ReLU()
+
+dense2 = Layer_Dense(3,3)
+activation2 = Activation_Softmax()
+
+dense1.forward(X)
+activation1.forward(dense1.output)
+
+dense2.forward(activation1.output)
+activation2.forward(dense2.output)
+
+print(activation2.output[:5])
